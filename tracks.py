@@ -81,6 +81,9 @@ for entry in all:
     artist_id = cur.fetchone()[0]
 
     #TODO 4 insert the genre value into Genre table. Create a genre_id value
+     cur.execute('''INSERT INTO Genre (name) VALUES (%s) ON CONFLICT (name) DO NOTHING''', ( genre, ) ) 
+    cur.execute('SELECT id FROM Genre WHERE name = %s ', (genre, ))
+    genre_id = cur.fetchone()[0]
 
     cur.execute('''INSERT OR IGNORE INTO Album () 
         VALUES ( ?, ? )''', ( album, artist_id ) )title, artist_id
