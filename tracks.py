@@ -34,6 +34,10 @@ CREATE TABLE Track (
     rating INTEGER,
     count INTEGER
 );
+CREATE TABLE Genre (
+    id SERIAL PRIMARY KEY,
+    name TEXT UNIQUE
+);
 ''')
 
 
